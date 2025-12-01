@@ -1,0 +1,8 @@
+Flask==3.0.2
+psycopg2==2.9.9
+werkzeug==3.0.1
+python-dotenv==1.0.1
+pandas
+scikit-learn
+joblib
+psycopg2-binary

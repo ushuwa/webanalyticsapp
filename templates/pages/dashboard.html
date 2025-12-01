@@ -1,0 +1,118 @@
+<div class="container-fluid" id="dashboard-section">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box">
+        <div class="page-title-right"></div>
+        <h4 class="page-title">Dashboard</h4>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-5 col-lg-6">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card widget-flat">
+            <div class="card-body">
+              <div class="float-end">
+                <i class="mdi mdi-trending-up widget-icon"></i>
+              </div>
+              <h5 class="text-muted fw-normal mt-0" title="Improved">Improved</h5>
+              <h3 class="mt-3 mb-3" id="improved"></h3>
+              <p class="mb-0 text-muted">
+                <span class="text-success me-2" id="improved_pct">
+                  <i class="mdi mdi-arrow-up-bold"></i>
+                </span>
+                <span class="text-nowrap">Since last year</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card widget-flat">
+            <div class="card-body">
+              <div class="float-end">
+                <i class="mdi mdi-approximately-equal widget-icon"></i>
+              </div>
+              <h5 class="text-muted fw-normal mt-0" title="Same">Same</h5>
+              <h3 class="mt-3 mb-3" id="same"></h3>
+              <p class="mb-0 text-muted">
+                <span class="me-2" id="same_pct" style="color: #1e90ff;">
+                  <i class="mdi mdi-equal"></i>
+                </span>
+                <span class="text-nowrap">Since last year</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card widget-flat">
+            <div class="card-body">
+              <div class="float-end">
+                <i class="mdi mdi-trending-down widget-icon"></i>
+              </div>
+              <h5 class="text-muted fw-normal mt-0" title="Worsened">Worsened</h5>
+              <h3 class="mt-3 mb-3" id="worsened"></h3>
+              <p class="mb-0 text-muted">
+                <span class="text-danger me-2" id="worsened_pct">
+                  <i class="mdi mdi-arrow-down-bold"></i>
+                </span>
+                <span class="text-nowrap">Since last year</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card widget-flat">
+            <div class="card-body">
+              <div class="float-end">
+                <i class="mdi mdi-account-group widget-icon"></i>
+              </div>
+              <h5 class="text-muted fw-normal mt-0" title="Total Client">Total Compared Client</h5>
+              <h3 class="mt-3 mb-3" id="total_clients"></h3>
+              <p class="mb-0 text-muted">
+                <span class="text-nowrap">Since last year</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-7">
+      <div class="card">
+        <div class="card-body">
+          <div dir="ltr">
+            <div id="spline-area" class="apex-charts" data-colors="#727cf5,#6c757d"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-lg-4">
+      <div class="card card-h-100">
+        <div class="card-body">
+          <div id="philippinemap"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-9 col-lg-8">
+      <div class="card card-h-100">
+        <div class="card-body">
+          <div dir="ltr">
+            <select id="timeFilter" style="margin-bottom: 10px;">
+              <option value="D">Days</option>
+              <option value="W">Weeks</option>
+              <option value="M">Months</option>
+              <option value="Q">Quarterly</option>
+              <option value="Y">Years</option>
+            </select>
+            <div id="analytics"></div>
+            <p style="margin: 0px 34%;">Mean of poverty likelihood reduction over time</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

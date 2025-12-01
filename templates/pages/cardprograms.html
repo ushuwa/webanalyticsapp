@@ -1,0 +1,270 @@
+<div class="container-fluid" id="cardprograms">
+  <div class="container">
+    <header>
+      <div class="header-badge">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+          <polyline points="17 6 23 6 23 12"></polyline>
+        </svg>
+        <h1 style="display:inline;">CARD MRI PPI Methodology</h1>
+      </div>
+      <p class="subtitle">A simple visual guide to how CARD MRI uses the <strong>Poverty Probability Index (PPI)</strong> to measure outreach and impact. </p>
+    </header>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="setStep(0)">1. Introduction</button>
+      <button class="nav-btn" onclick="setStep(1)">2. The Survey</button>
+      <button class="nav-btn" onclick="setStep(2)">3. The Scoring</button>
+      <button class="nav-btn" onclick="setStep(3)">4. The Action</button>
+    </nav>
+    <main id="main-content">
+      <div id="step-0" class="section active">
+        <h2>Why Measure Poverty?</h2>
+        <div class="card1-grid">
+          <div class="card1">
+            <div class="card1-title" style="color:#dc2626;">The Challenge</div>
+            <p class="card1-text">CARD MRI's mission is to eradicate poverty. But how do they know if new clients are actually poor? Or if long-term clients are moving out of poverty? Guesswork isn't enough.</p>
+          </div>
+          <div class="card1">
+            <div class="card1-title" style="color:var(--primary);">The Solution: PPI</div>
+            <p class="card1-text">The <strong>Poverty Probability Index</strong> is a simple scorecard. It uses 10 questions about a household's characteristics to statistically calculate the likelihood that they are living below the poverty line. </p>
+          </div>
+        </div>
+        <div class="card1" style="margin-top: 1.5rem; border-left: 4px solid var(--primary);">
+          <div class="card1-title">Key Concept: The Proxy</div>
+          <p class="card1-text">Instead of asking "How much money do you make?" (which is hard to verify), PPI asks about <strong>observable proxies</strong> like "What is your roof made of?" or "Do you have a washing machine?". </p>
+        </div>
+        <div class="clearfix" style="margin-top: 2rem;">
+          <button class="action-btn" onclick="setStep(1)">See How It Works →</button>
+        </div>
+      </div>
+      <div id="step-1" class="section">
+        <h2>Step 1: The Field Survey</h2>
+        <p class="subtitle" style="text-align:left; margin-bottom:1.5rem;"> Imagine you are an Account Officer visiting a client. Select the answers below to simulate the survey. </p>
+        <div class="card1-grid">
+          <div class="card1">
+            <div class="card1-title">1. Roof Material?</div>
+            <button class="option-btn" data-category="roof" data-id="light" data-points="0">
+              <span>Light / Salvaged</span>
+              <span class="points-badge">+0 pts</span>
+            </button>
+            <button class="option-btn" data-category="roof" data-id="strong" data-points="12">
+              <span>Strong / Galv. Iron</span>
+              <span class="points-badge">+12 pts</span>
+            </button>
+          </div>
+          <div class="card1">
+            <div class="card1-title">2. Children (0-11 yrs)?</div>
+            <button class="option-btn" data-category="children" data-id="many" data-points="0">
+              <span>3 or more</span>
+              <span class="points-badge">+0 pts</span>
+            </button>
+            <button class="option-btn" data-category="children" data-id="few" data-points="15">
+              <span>0 to 1</span>
+              <span class="points-badge">+15 pts</span>
+            </button>
+          </div>
+          <div class="card1">
+            <div class="card1-title">3. Own a TV?</div>
+            <button class="option-btn" data-category="tv" data-id="no" data-points="0">
+              <span>No</span>
+              <span class="points-badge">+0 pts</span>
+            </button>
+            <button class="option-btn" data-category="tv" data-id="yes" data-points="8">
+              <span>Yes</span>
+              <span class="points-badge">+8 pts</span>
+            </button>
+          </div>
+        </div>
+        <div class="clearfix" style="margin-top: 2rem;">
+          <button id="calc-btn" class="action-btn" disabled>Calculate Score →</button>
+        </div>
+      </div>
+      <div id="step-2" class="section">
+        <h2>Step 2: Scoring & Probability</h2>
+        <div class="card1-grid" style="grid-template-columns: 1fr 1fr;">
+          <div>
+            <div class="score-board">
+              <div style="margin-bottom:1rem; color:#d1d5db;">Total PPI Score</div>
+              <div class="score-row">
+                <span>Roof Material:</span>
+                <span style="color:#4ade80;" id="score-roof">+0 pts</span>
+              </div>
+              <div class="score-row">
+                <span>Children Count:</span>
+                <span style="color:#4ade80;" id="score-children">+0 pts</span>
+              </div>
+              <div class="score-row">
+                <span>TV Ownership:</span>
+                <span style="color:#4ade80;" id="score-tv">+0 pts</span>
+              </div>
+              <div class="score-total">
+                <span>Total:</span>
+                <span>
+                  <span id="score-total-val">0</span>
+                  <span style="font-size:1rem; font-weight:normal; color:#9ca3af;">/ 100</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <p style="font-size:0.9rem; margin-bottom:1rem;">
+              <strong>Higher Score = Lower Poverty Probability.</strong> The total score is matched against a standard table.
+            </p>
+            <table class="lookup-table">
+              <thead>
+                <tr>
+                  <th>PPI Score</th>
+                  <th>Poverty Likelihood</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="row-very-high">
+                  <td>0 - 9</td>
+                  <td style="color:#dc2626;">85% (Very High)</td>
+                </tr>
+                <tr id="row-high">
+                  <td>10 - 19</td>
+                  <td style="color:#f97316;">60% (High)</td>
+                </tr>
+                <tr id="row-mod">
+                  <td>20 - 29</td>
+                  <td style="color:#ca8a04;">35% (Moderate)</td>
+                </tr>
+                <tr id="row-low">
+                  <td>30+</td>
+                  <td style="color:var(--primary);">10% (Low)</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="prob-result">
+              <div style="font-size:2rem; font-weight:bold;" id="prob-display">--%</div>
+              <div>Probability this household is below the poverty line.</div>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix" style="margin-top: 2rem;">
+          <a class="back"style="cursor: pointer;" onclick="setStep(1)"> ← Adjust Answers</a>
+          <button class="action-btn" onclick="setStep(3)">What does CARD do? →</button>
+        </div>
+      </div>
+      <div id="step-3" class="section">
+        <h2>Step 3: Taking Action</h2>
+        <div class="card1-grid">
+          <div class="card1">
+            <div class="card1-title">Targeting</div>
+            <p class="card1-text">CARD uses the score to ensure they are reaching their intended demographic: the poor. If a branch has too many high-scoring clients, they need to refocus.</p>
+          </div>
+          <div class="card1">
+            <div class="card1-title">Segmentation</div>
+            <p class="card1-text">
+              <strong>Very Poor (0-20):</strong> Need grants/health support. <br>
+              <strong>Enterprising Poor (20-50):</strong> Ready for microloans.
+            </p>
+          </div>
+          <div class="card1">
+            <div class="card1-title">Monitoring Change</div>
+            <p class="card1-text">By repeating the survey every year, CARD tracks if a client's score is going UP. If scores rise, the poverty alleviation program is working.</p>
+          </div>
+        </div>
+        <div style="margin-top:2rem; background:var(--primary1); color:white; padding:1.5rem; border-radius:0.75rem; text-align:center;">
+          <h3 style="margin:0 0 0.5rem 0;">The "Double Bottom Line"</h3>
+          <p style="margin:0; opacity:0.9;">Financial data tells CARD if the bank is sustainable. <br>PPI data tells CARD if they are fulfilling their social mission. </p>
+        </div>
+        <div style="text-align:center; margin-top:2rem;">
+          <button class="action-btn" style="float:none;" onclick="resetApp()">Start Over ↺</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-4">
+            <img src="{{ url_for('static', filename='hyper/images/small/small-4.jpg') }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">MICROFINANCE & SME Financing</h5>
+              <p class="card-text" style="font-size: 1rem; line-height: 1.6; text-align: justify;">CARD MRI grows with its clients. With landless women as target clients in mind, CARD MRI first offered microloans for small-scale livelihood activities, education, health and agriculture through CARD, Inc. (A Microfinance NGO). After several years of training and educating these women on how to manage their loans, they evolve into businesswomen who are now in need of a formal banking system. Thus, CARD MRI assisted this need through microfinance-oriented rural banks CARD Bank, Inc., and CARD MRI Rizal Bank, Inc. As we further respond to the growing needs of our clients, we also established a bank for MSMEs called the CARD SME Bank, Inc. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Microinsurance</h5>
+              <p class="card-text" style="font-size: 1rem; line-height: 1.6; text-align: justify;">CARD MRI Microinsurance serves as a reassuring beacon of financial security, going beyond traditional insurance boundaries to provide inclusive solution. With a deep commitment to uplifting communities and safeguarding livelihoods, it seamlessly integrates both life and non-life coverage, ensuring individuals and families are protected against unforeseen challenges. In terms of life insurance, CARD's life microinsurance products are designed to provide financial protection in the event of unforeseen circumstances such as the death or disability of the insured individual. This coverage helps safeguard the well-being of the insured's family and dependents by offering a financial safety net during difficult times. It ensures that the policyholder's loved ones are provided for, contributing to long-term financial security. Addressing the diverse challenges of daily life, the non-life microfinsurance products of CARD protects homes from natural disasters, secures assets against unexpected events, and safeguards small businesses. This tailored non-life coverage fortifies the resilience of individuals and communities, recognizing that economic stability is linked to the protection of tangible assets. </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="{{ url_for('static', filename='hyper/images/small/small-4.jpg') }}" class="img-fluid rounded-start" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-4">
+            <img src="{{ url_for('static', filename='hyper/images/small/small-4.jpg') }}" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Islamic Banking</h5>
+              <p class="card-text" style="font-size: 1rem; line-height: 1.6; text-align: justify;">CARD MRI has expanded into Islamic banking with the introduction of the first branch in Cotabato City. Operating under CARD Bank, this move addresses the financial needs of the Muslim community in Mindanao. Complying with Shariah principles, the branch offers Wadiah Deposits and diverse financing options. Collaborating with Islamic financial experts ensures correct implementation, while the branch, designed with cultural sensitivity, includes an Islamic prayer room and modern technologies like the konek2CARD mobile app for a seamless banking experience. This initiative highlights CARD MRI's commitment to inclusive financial services in the Philippines. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="row g-0 align-items-center">
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Community Development Services</h5>
+              <p class="card-text" style="font-size: 1rem; line-height: 1.6; text-align: justify;">The Community Development Group collaborates with the different CARD institutions to improve access of members to social service in order to It In terms of life insurance, CARD's life microinsurance products are designed to provide financial protection in the event of unforeseen circumstances such as the death or disability of the insured individual. This coverage helps safeguard the well-being of the insured's family and dependents by offering a financial safety net during difficult times. It ensures that the policyholder's loved ones are provided for, contributing to long-term financial security. Addressing the diverse challenges of daily life, the non-life microfinsurance products of CARD protects homes from natural disasters, secures assets against unexpected events, and safeguards small businesses. This tailored non-life coverage fortifies the resilience of individuals and communities, recognizing that economic stability is linked to the protection of tangible assets. </p>
+              <h5 class="card-title">Health</h5>
+              <p class="card-text" style="font-size: 1rem; line-height: 1.6; text-align: justify;">Through the Microfinance and Health Protection Program (MaHP), CARD MRI contributes to the communities by providing access to health services. We bring medical practitioners closer to the economically-challenged so that they can avail quality services for free or at a reasonably low price. MaHP also works in close coordination with BotiCARD, Inc. CARD MRI's Generic Pharmacy, to provide our members with affordable and quality medicines. To replicate the success of the health programs of CARD MRI, the "MFIS for Health" was formed in 2013 to engage MFIs in the country and deliver health services to more MFI clients. Through "MFIs for Health", Community Health Days are continuously held all over the country by CARD MRI and other MFIs gather various microfinance members and their dependents together for free medical and dental services. In addition to these efforts, CARD MRI extends its health initiatives through CARD Astro. It enhances healthcare accessibility by offering essential disinfectant products and the like, supporting overall community well-being. </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <img src="{{ url_for('static', filename='hyper/images/small/small-4.jpg') }}" class="img-fluid rounded-start" alt="...">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- <div class="container-fluid" id="cardprograms">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box">
+        <div class="page-title-right"></div>
+        <h4 class="page-title" style="text-align: center; background: green; color: white;">CARD-MRI Programs</h4>
+      </div>
+    </div>
+  </div>
+  
+</div> -->
+
+
+
+
+
