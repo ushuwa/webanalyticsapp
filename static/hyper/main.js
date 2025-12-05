@@ -43,9 +43,6 @@ async function navigate(event, urlPath, pageFile, element) {
             }
         }
 
-
-        
-
         // ⭐ Run page-specific JS AFTER the HTML is added
         if (pageFile === "usermanagement.html") {
             setTimeout(() => {
@@ -63,6 +60,16 @@ async function navigate(event, urlPath, pageFile, element) {
                     initUploads();
                 } else {
                     console.error("initUploads() not found. Did you include uploads.js?");
+                }
+            }, 50);
+        }
+
+        if (pageFile === "scholarship_dashboard.html") {
+            setTimeout(() => {
+                if (typeof initScholarshipDashboard === "function") {
+                    initScholarshipDashboard();
+                } else {
+                    console.error("initUplinitScholarshipDashboardoads() not found. Did you include scholarship_dashboard.js?");
                 }
             }, 50);
         }

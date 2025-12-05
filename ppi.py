@@ -87,5 +87,75 @@ def get_poverty_probability(score):
     if score < 30: return 35
     return 10
 
+def compute_insights_ppi(df):
+    import pandas as pd
+
+    df = df.copy()
+    df.columns = [c.lower().strip() for c in df.columns]
+
+    required = {"cid", "totalppi", "dopen", "area"}
+    if not required.issubset(df.columns):
+        raise KeyError(f"Missing columns: {required - set(df.columns)}")
+
+    # clean PPI
+    df["totalppi"] = pd.to_numeric(df["totalppi"], errors="coerce")
+    df["dopen"] = pd.to_datetime(df["dopen"], errors="coerce")
+    df = df.dropna(subset=["totalppi", "dopen", "area"])
+    df = df[df["totalppi"] > 0]
+
+    # PRE / POST
+    df_sorted = df.sort_values("dopen")
+    pre = df_sorted.groupby("cid").first()
+    post = df_sorted.groupby("cid").last()
+
+    post["area"] = pre["area"]
+
+    # Poverty calculation
+    def pov(x):
+        return max(0, min(100, 100 - (float(x) * 1.3)))
+
+    pre["poverty"] = pre["totalppi"].apply(pov)
+    post["poverty"] = post["totalppi"].apply(pov)
+
+    post["change"] = post["poverty"] - pre["poverty"]
+    post["movement"] = post["change"].apply(
+        lambda x: "Improved" if x < 0 else ("Worsened" if x > 0 else "Same")
+    )
+
+    # region metrics
+    pre_area = pre.groupby("area")["poverty"].mean().rename("pre_avg")
+    post_area = post.groupby("area")["poverty"].mean().rename("post_avg")
+
+    moved_area = post.groupby("area")["movement"].value_counts().unstack(fill_value=0)
+
+    df_reg = pd.concat([pre_area, post_area], axis=1).fillna(0)
+    df_reg["total"] = moved_area.sum(axis=1)
+    df_reg["improved_pct"] = (moved_area.get("Improved", 0) / df_reg["total"]) * 100
+    df_reg["worsened_pct"] = (moved_area.get("Worsened", 0) / df_reg["total"]) * 100
+
+    # heuristic
+    df_reg["support_score"] = (
+        df_reg["post_avg"] - df_reg["pre_avg"]
+    ) + (df_reg["worsened_pct"] / 10)
+
+    df_reg = df_reg.reset_index()
+    df_reg = df_reg.sort_values("support_score", ascending=False).head(5)
+
+    regions_output = [
+        {
+            "area": r["area"],
+            "pre_avg": round(float(r["pre_avg"]), 2),
+            "post_avg": round(float(r["post_avg"]), 2),
+            "improved_pct": round(float(r["improved_pct"]), 2),
+            "worsened_pct": round(float(r["worsened_pct"]), 2),
+            "support_score": round(float(r["support_score"]), 3)
+        }
+        for _, r in df_reg.iterrows()
+    ]
+
+    return {
+        "regions_needing_support": regions_output,
+        "total_clients": int(len(pre))
+    }
 
 

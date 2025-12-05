@@ -40,7 +40,7 @@ html[data-menu-color=dark] {
 }
 
 html[data-menu-color=brand] {
-  --ct-menu-bg: linear-gradient(135deg, #6379c3 0%, #546ee5 60%);
+  --ct-menu-bg: linear-gradient(135deg, #6379c3 0%, #aa1f0e 60%);
   --ct-menu-item-color: #cedce4;
   --ct-menu-item-hover-color: #ffffff;
   --ct-menu-item-active-color: #ffffff;
@@ -75,7 +75,7 @@ html[data-topbar-color=dark] {
 }
 
 html[data-topbar-color=brand] {
-  --ct-topbar-bg: linear-gradient(135deg, #6379c3 0%, #546ee5 60%);
+  --ct-topbar-bg: linear-gradient(135deg, #6379c3 0%, #aa1f0e 60%);
   --ct-topbar-item-color: rgba(255, 255, 255, 0.7);
   --ct-topbar-item-hover-color: #ffffff;
   --ct-topbar-search-bg: rgba(255, 255, 255, 0.1);
@@ -100,9 +100,9 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
  */
 :root,
 [data-bs-theme=light] {
-  --ct-blue: #2c8ef8;
-  --ct-indigo: #1E90FF;
-  --ct-purple: #6b5eae;
+  --ct-blue: #aa1f0e;
+  --ct-indigo: #aa1f0e;
+  --ct-purple: #aa1f0e;
   --ct-pink: #ff679b;
   --ct-red: #fa5c7c;
   --ct-orange: #fd7e14;
@@ -123,15 +123,15 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
   --ct-gray-700: #6c757d;
   --ct-gray-800: #343a40;
   --ct-gray-900: #313a46;
-  --ct-primary: #1E90FF;
+  --ct-primary: #aa1f0e;
   --ct-secondary: #6c757d;
   --ct-success: #0acf97;
-  --ct-info: #39afd1;
+  --ct-info: #aa1f0e;
   --ct-warning: #ffc35a;
   --ct-danger: #fa5c7c;
   --ct-light: #eef2f7;
   --ct-dark: #313a46;
-  --ct-primary-rgb: 30, 144, 255;
+  --ct-primary-rgb: 170, 5, 15;
   --ct-secondary-rgb: 108, 117, 125;
   --ct-success-rgb: 10, 207, 151;
   --ct-info-rgb: 57, 175, 209;
@@ -187,10 +187,10 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
   --ct-tertiary-bg: #f6f7fb;
   --ct-tertiary-bg-rgb: 246, 247, 251;
   --ct-heading-color: inherit;
-  --ct-link-color: #1E90FF;
+  --ct-link-color: #aa1f0e;
   --ct-link-color-rgb: 97, 105, 208;
   --ct-link-decoration: none;
-  --ct-link-hover-color: #6169d0;
+  --ct-link-hover-color: #aa1f0e;
   --ct-link-hover-color-rgb: 97, 105, 208;
   --ct-code-color: #39afd1;
   --ct-highlight-bg: #fff3de;
@@ -234,7 +234,7 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
   --ct-tertiary-color-rgb: 241, 241, 241;
   --ct-tertiary-bg: #404954;
   --ct-tertiary-bg-rgb: 64, 73, 84;
-  --ct-primary-text-emphasis: #aab0f9;
+  --ct-primary-text-emphasis: #aa1f0e;
   --ct-secondary-text-emphasis: #dee2e6;
   --ct-success-text-emphasis: #6ce2c1;
   --ct-info-text-emphasis: #88cfe3;
@@ -250,7 +250,7 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
   --ct-danger-bg-subtle: rgba(var(--ct-danger-rgb), 0.15);
   --ct-light-bg-subtle: rgba(var(--ct-light-rgb), 0.15);
   --ct-dark-bg-subtle: rgba(var(--ct-dark-rgb), 0.15);
-  --ct-primary-border-subtle: #444a93;
+  --ct-primary-border-subtle: #aa1f0e;
   --ct-secondary-border-subtle: #6c757d;
   --ct-success-border-subtle: #067c5b;
   --ct-info-border-subtle: #22697d;
@@ -259,8 +259,8 @@ html[data-bs-theme=dark][data-topbar-color=dark] {
   --ct-light-border-subtle: #6c757d;
   --ct-dark-border-subtle: #343a40;
   --ct-heading-color: #aab8c5;
-  --ct-link-color: #aab0f9;
-  --ct-link-hover-color: #b7bcfa;
+  --ct-link-color: #aa1f0e;
+  --ct-link-hover-color: #aa1f0e;
   --ct-link-color-rgb: 170, 176, 249;
   --ct-link-hover-color-rgb: 183, 188, 250;
   --ct-code-color: #88cfe3;
@@ -2811,8 +2811,8 @@ textarea.form-control-lg {
           box-shadow: 0 0 0 0.15rem rgba(114, 124, 245, 0.25);
 }
 .form-check-input:checked {
-  background-color: #1E90FF;
-  border-color: #1E90FF;
+  background-color: #aa1f0e;
+  border-color: #aa1f0e;
 }
 .form-check-input:checked[type=checkbox] {
   --ct-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
@@ -2821,8 +2821,8 @@ textarea.form-control-lg {
   --ct-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e");
 }
 .form-check-input[type=checkbox]:indeterminate {
-  background-color: #1E90FF;
-  border-color: #1E90FF;
+  background-color: #aa1f0e;
+  border-color: #aa1f0e;
   --ct-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
@@ -2918,7 +2918,7 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #1E90FF;
+  background-color: #aa1f0e;
   border: 0;
   border-radius: 1rem;
   -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -2949,7 +2949,7 @@ textarea.form-control-lg {
 .form-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #1E90FF;
+  background-color: #aa1f0e;
   border: 0;
   border-radius: 1rem;
   -moz-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -3508,19 +3508,19 @@ textarea.form-control-lg {
 
 .btn-primary {
   --ct-btn-color: #fff;
-  --ct-btn-bg: #1E90FF;
-  --ct-btn-border-color: #1E90FF;
+  --ct-btn-bg: #aa1f0e;
+  --ct-btn-border-color: #aa1f0e;
   --ct-btn-hover-color: #fff;
-  --ct-btn-hover-bg: #1E90FF;
-  --ct-btn-hover-border-color: #1E90FF;
+  --ct-btn-hover-bg: #aa1f0e;
+  --ct-btn-hover-border-color: #aa1f0e;
   --ct-btn-focus-shadow-rgb: 135, 144, 247;
   --ct-btn-active-color: #fff;
-  --ct-btn-active-bg: #1E90FF;
-  --ct-btn-active-border-color: #1E90FF;
+  --ct-btn-active-bg: #aa1f0e;
+  --ct-btn-active-border-color: #aa1f0e;
   --ct-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --ct-btn-disabled-color: #fff;
-  --ct-btn-disabled-bg: #1E90FF;
-  --ct-btn-disabled-border-color: #1E90FF;
+  --ct-btn-disabled-bg: #aa1f0e;
+  --ct-btn-disabled-border-color: #aa1f0e;
 }
 
 .btn-secondary {
@@ -18116,8 +18116,8 @@ input[data-switch=dark]:checked + label {
 }
 .hero-section:after {
   content: " ";
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#6379c3), to(#546ee5));
-  background-image: linear-gradient(to bottom, #6379c3, #546ee5);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#6379c3), to(#aa1f0e));
+  background-image: linear-gradient(to bottom, #6379c3, #aa1f0e);
   position: absolute;
   top: -400px;
   right: 0;
