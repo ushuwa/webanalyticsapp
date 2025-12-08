@@ -1210,6 +1210,416 @@ def scholarship_demand_forecast():
         }
     })
 
+@app.route("/scholarship/age-distribution")
+def scholarship_age_distribution():
+    import pandas as pd
+    from sklearn.cluster import KMeans
+
+    df = dependent.load_df()
+    df.columns = [c.lower().strip() for c in df.columns]
+
+    required = {"dependent_age", "dependent name", "householdmonthly income"}
+    missing = required - set(df.columns)
+    if missing:
+        return jsonify({"error": f"Missing columns: {missing}"}), 400
+
+    # ----- CLEAN TEXT FIELDS -----
+    invalid_values = ["", "null", "none", "nan", "[null]", "nil"]
+
+    df["dependent name"] = df["dependent name"].astype(str).str.strip()
+    df["householdmonthly income"] = df["householdmonthly income"].astype(str).str.strip()
+
+    # Exclude rows with invalid dependent name OR invalid income
+    df = df[
+        (~df["dependent name"].str.lower().isin(invalid_values)) &
+        (~df["householdmonthly income"].str.lower().isin(invalid_values))
+    ].copy()
+
+    # ----- CLEAN NUMERIC INCOME -----
+    df["income"] = pd.to_numeric(
+        df["householdmonthly income"].str.replace(r"[^0-9.\-]", "", regex=True),
+        errors="coerce"
+    )
+
+    df = df.dropna(subset=["income"])
+    df = df[df["income"] > 0]
+
+    # ----- CLEAN & VALIDATE AGE -----
+    df["dependent_age"] = pd.to_numeric(df["dependent_age"], errors="coerce")
+    df = df.dropna(subset=["dependent_age"])
+
+    # Keep only eligible ages: 6–22
+    df_eligible = df[(df["dependent_age"] >= 6) & (df["dependent_age"] <= 22)].copy()
+
+    if df_eligible.empty:
+        return jsonify({"error": "No eligible dependents found"}), 400
+
+    # =============================================
+    # DESCRIPTIVE ANALYTICS
+    # =============================================
+
+    # Age distribution (raw)
+    age_dist = df_eligible["dependent_age"].value_counts().sort_index().to_dict()
+
+    # Age grouping
+    def group_age(a):
+        a = int(a)
+        if 6 <= a <= 12: return "Elementary (6-12)"
+        if 13 <= a <= 16: return "Junior HS (13-16)"
+        if 17 <= a <= 18: return "Senior HS (17-18)"
+        return "College (19-22)"
+
+    df_eligible.loc[:, "age_group"] = df_eligible["dependent_age"].apply(group_age)
+    grouped = df_eligible["age_group"].value_counts().to_dict()
+
+    # =============================================
+    # MACHINE LEARNING CLUSTERING (K-MEANS)
+    # =============================================
+
+    X = df_eligible[["dependent_age"]].values
+
+    kmeans = KMeans(n_clusters=3, random_state=42, n_init="auto")
+    df_eligible.loc[:, "cluster"] = kmeans.fit_predict(X)
+
+    centroids = kmeans.cluster_centers_.flatten().tolist()
+
+    # Order clusters from youngest → oldest
+    order = sorted(range(3), key=lambda i: centroids[i])
+
+    cluster_labels = {
+        order[0]: "Younger Scholars",
+        order[1]: "Middle Scholars",
+        order[2]: "Older Scholars"
+    }
+
+    df_eligible.loc[:, "cluster_label"] = df_eligible["cluster"].map(cluster_labels)
+    cluster_distribution = df_eligible["cluster_label"].value_counts().to_dict()
+
+    # =============================================
+    # RETURN JSON RESPONSE
+    # =============================================
+
+    return jsonify({
+        "total_eligible_dependents": int(len(df_eligible)),
+        "age_distribution": {str(int(k)): int(v) for k, v in age_dist.items()},
+        "age_groups": {k: int(v) for k, v in grouped.items()},
+        "ml_analysis": {
+            "kmeans_centroids": [round(float(c), 2) for c in centroids],
+            "cluster_distribution": {k: int(v) for k, v in cluster_distribution.items()},
+            "cluster_labels": cluster_labels
+        }
+    })
+
+@app.route("/scholarship/income-analytics")
+def scholarship_income_analytics():
+    import pandas as pd
+    import numpy as np
+    from sklearn.cluster import KMeans
+    import re
+
+    df = dependent.load_df()
+    df.columns = [c.lower().strip() for c in df.columns]
+
+    required = {"dependent name", "householdmonthly income"}
+    missing = required - set(df.columns)
+    if missing:
+        return jsonify({"error": f"Missing columns: {missing}"}), 400
+
+    # REMOVE INVALID ROWS
+    invalid_values = ["", "null", "none", "nan", "[null]", "nil"]
+
+    df["dependent name"] = df["dependent name"].astype(str).str.strip()
+    df["householdmonthly income"] = df["householdmonthly income"].astype(str).str.strip()
+
+    df = df[
+        (~df["dependent name"].str.lower().isin(invalid_values)) &
+        (~df["householdmonthly income"].str.lower().isin(invalid_values))
+    ].copy()
+
+    # ============================================
+    # CLEAN INCOME FIELD (Handles Ranges)
+    # ============================================
+
+    def parse_income(value):
+        """
+        Extract numeric income from:
+        - "Above 15,000 pesos"
+        - "10001 - 15,000 pesos"
+        - "8001 - 10,000 pesos"
+        - "5001 - 8,000 pesos"
+        - "3001 - 5,000 pesos"
+        - "1001 - 3,000 pesos"
+        - "Below 1,000 pesos"
+        """
+        v = str(value)
+
+        # Keep digits, hyphens, commas, spaces only
+        cleaned = re.sub(r"[^0-9,\-\s]", "", v)
+
+        # Replace multiple spaces or special hyphens
+        cleaned = cleaned.replace("–", "-").replace("—", "-")
+
+        # If range exists
+        if "-" in cleaned:
+            parts = cleaned.split("-")
+            try:
+                n1 = float(parts[0].replace(",", "").strip())
+                n2 = float(parts[1].replace(",", "").strip())
+                return (n1 + n2) / 2  # midpoint
+            except:
+                return None
+        else:
+            # Single numeric value
+            try:
+                return float(cleaned.replace(",", "").strip())
+            except:
+                return None
+
+    # APPLY CLEANING
+    df["income"] = df["householdmonthly income"].apply(parse_income)
+
+    df = df.dropna(subset=["income"])
+    df = df[df["income"] > 0]
+
+    if df.empty:
+        return jsonify({"error": "No valid income data after cleaning"}), 400
+
+    # ============================================
+    # INCOME DISTRIBUTION
+    # ============================================
+    income_dist = (
+        df["income"].value_counts().sort_index().to_dict()
+    )
+
+    # ============================================
+    # INCOME BRACKETS
+    # ============================================
+
+    def bracket(x):
+        if x <= 5000: return "Low Income (0-5000)"
+        elif x <= 15000: return "Middle Income (5001-15000)"
+        else: return "High Income (15001+)"
+
+    df["income_bracket"] = df["income"].apply(bracket)
+    bracket_counts = df["income_bracket"].value_counts().to_dict()
+
+    # ============================================
+    # STATISTICS
+    # ============================================
+    stats = {
+        "mean_income": float(round(df["income"].mean(), 2)),
+        "median_income": float(round(df["income"].median(), 2)),
+        "min_income": float(df["income"].min()),
+        "max_income": float(df["income"].max()),
+        "std_dev": float(round(df["income"].std(), 2))
+    }
+
+    # ============================================
+    # MACHINE LEARNING: K-MEANS CLUSTERING
+    # ============================================
+    X = df[["income"]].values
+
+    kmeans = KMeans(n_clusters=3, random_state=42, n_init="auto")
+    df["cluster"] = kmeans.fit_predict(X)
+
+    centroids = kmeans.cluster_centers_.flatten().tolist()
+    order = sorted(range(3), key=lambda i: centroids[i])
+
+    cluster_labels = {
+        order[0]: "Low Income Cluster",
+        order[1]: "Middle Income Cluster",
+        order[2]: "High Income Cluster"
+    }
+
+    df["cluster_label"] = df["cluster"].map(cluster_labels)
+    cluster_distribution = df["cluster_label"].value_counts().to_dict()
+
+    # ============================================
+    # FINAL OUTPUT
+    # ============================================
+
+    return jsonify({
+        "total_clients": int(len(df)),
+        "income_distribution": {str(int(k)): int(v) for k, v in income_dist.items()},
+        "income_brackets": {k: int(v) for k, v in bracket_counts.items()},
+        "statistics": stats,
+        "ml_analysis": {
+            "kmeans_centroids": [round(float(c), 2) for c in centroids],
+            "cluster_distribution": {k: int(v) for k, v in cluster_distribution.items()},
+            "cluster_labels": cluster_labels
+        }
+    })
+
+
+@app.route("/scholarship/priority-scoring")
+def scholarship_priority_scoring():
+    import pandas as pd
+    import numpy as np
+    import re
+
+    # ==========================
+    # LOAD DATA
+    # ==========================
+    ppi_df = ppi.load_df()
+    dep_df = dependent.load_df()
+
+    ppi_df.columns = [c.lower().strip() for c in ppi_df.columns]
+    dep_df.columns = [c.lower().strip() for c in dep_df.columns]
+
+    # ==========================
+    # CLEAN TEXT FIELDS
+    # ==========================
+    def clean_name(s):
+        s = str(s).upper().strip()
+        s = s.replace(" CITY", "").replace(" MUNICIPALITY", "")
+        s = re.sub(r"\s+", " ", s)
+        return s
+
+    # For Dependent.csv
+    dep_df["province"] = dep_df["province"].apply(clean_name)
+    dep_df["city"] = dep_df["city"].apply(clean_name)
+
+    # For PPI.csv
+    ppi_df["area"] = ppi_df["area"].apply(clean_name)
+    ppi_df["unit"] = ppi_df["unit"].apply(clean_name)
+
+    # Fix BATANGAS 1 → BATANGAS
+    ppi_df["area"] = ppi_df["area"].str.replace(r"\d+", "", regex=True).str.strip()
+
+    # ==========================
+    # CLEAN INCOME (handles ranges)
+    # ==========================
+    def parse_income(value):
+        v = str(value)
+        v = v.replace("–", "-").replace("—", "-")
+        v = re.sub(r"[^0-9,\-\s]", "", v)
+
+        if "-" in v:
+            parts = v.split("-")
+            try:
+                n1 = float(parts[0].replace(",", "").strip())
+                n2 = float(parts[1].replace(",", "").strip())
+                return (n1 + n2) / 2
+            except:
+                return None
+        else:
+            try:
+                return float(v.replace(",", "").strip())
+            except:
+                return None
+
+    dep_df["income"] = dep_df["householdmonthly income"].apply(parse_income)
+
+    # CLEAN LOAN
+    dep_df["loan"] = pd.to_numeric(
+        dep_df["loan balance"].astype(str).str.replace(r"[^0-9.\-]", "", regex=True),
+        errors="coerce"
+    )
+
+    # AGE CLEANING
+    dep_df["dependent_age"] = pd.to_numeric(dep_df["dependent_age"], errors="coerce")
+
+    # REMOVE NULLS
+    dep_df = dep_df.dropna(subset=["province", "city", "income", "loan", "dependent_age"])
+
+    # ==========================
+    # DEPENDENT ELIGIBILITY
+    # ==========================
+    dep_df["eligible"] = dep_df["dependent_age"].apply(lambda x: 1 if 6 <= x <= 22 else 0)
+
+    # ==========================
+    # GROUP DEPENDENT DATA BY AREA
+    # ==========================
+    area = dep_df.groupby(["province", "city"]).agg({
+        "income": "mean",
+        "loan": "mean",
+        "eligible": "sum"
+    }).reset_index()
+
+    # ==========================
+    # PPI POVERTY DATA
+    # ==========================
+    ppi_df["totalppi"] = pd.to_numeric(ppi_df["totalppi"], errors="coerce")
+    ppi_df = ppi_df.dropna(subset=["totalppi"])
+
+    ppi_area = ppi_df.groupby(["area", "unit"])["totalppi"].mean().reset_index()
+    ppi_area.rename(columns={"area": "province", "unit": "city", "totalppi": "poverty"}, inplace=True)
+
+    # ==========================
+    # MERGE DEPENDENTS + POVERTY
+    # ==========================
+    merged = pd.merge(area, ppi_area, on=["province", "city"], how="left")
+
+    # Debug print (optional)
+    # print("Unmatched areas:\n", merged[merged["poverty"].isna()][["province", "city"]].drop_duplicates())
+
+    # If poverty missing → assign median to avoid NaN
+    merged["poverty"] = merged["poverty"].fillna(merged["poverty"].median())
+
+    # ==========================
+    # NORMALIZATION (NaN SAFE)
+    # ==========================
+    def normalize(series):
+        if series.nunique() <= 1:
+            return series * 0  # All zeros
+        return (series - series.min()) / (series.max() - series.min())
+
+    merged["poverty_score"] = normalize(merged["poverty"])
+    merged["income_score"] = 1 - normalize(merged["income"])     # lower income = higher need
+    merged["loan_score"] = normalize(merged["loan"])
+    merged["eligible_score"] = normalize(merged["eligible"])
+
+    # Dropout risk proxy
+    merged["dropout_risk"] = (
+        merged["poverty_score"] * 0.5 +
+        merged["income_score"] * 0.3 +
+        merged["loan_score"] * 0.2
+    )
+
+    # ==========================
+    # FINAL WEIGHTED PRIORITY SCORE
+    # ==========================
+    merged["priority_score"] = (
+        0.30 * merged["poverty_score"] +
+        0.25 * merged["income_score"] +
+        0.20 * merged["loan_score"] +
+        0.15 * merged["eligible_score"] +
+        0.10 * merged["dropout_risk"]
+    )
+
+    merged = merged.sort_values("priority_score", ascending=False)
+    merged["rank"] = range(1, len(merged) + 1)
+
+    # ==========================
+    # FORMAT OUTPUT
+    # ==========================
+    results = []
+    for _, row in merged.iterrows():
+        results.append({
+            "province": row["province"],
+            "city": row["city"],
+            "priority_score": round(float(row["priority_score"]), 4),
+            "rank": int(row["rank"]),
+            "weights_breakdown": {
+                "poverty_score": round(float(row["poverty_score"]), 4),
+                "income_score": round(float(row["income_score"]), 4),
+                "loan_score": round(float(row["loan_score"]), 4),
+                "eligible_dependents_score": round(float(row["eligible_score"]), 4),
+                "dropout_risk": round(float(row["dropout_risk"]), 4)
+            }
+        })
+
+    return jsonify({
+        "criteria_explanation": {
+            "poverty_score": "Derived from PPI (higher poverty → higher priority)",
+            "income_score": "Lower income yields higher scholarship need",
+            "loan_score": "Higher loan burdens indicate financial stress",
+            "eligible_dependents_score": "More school-age dependents → more scholars needed",
+            "dropout_risk": "Calculated using poverty, income, and loan levels"
+        },
+        "results": results
+    })
+
 
 
 
@@ -1219,6 +1629,7 @@ def scholarship_demand_forecast():
 # ===========================
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
 
 
 

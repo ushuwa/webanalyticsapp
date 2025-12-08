@@ -70833,3 +70833,403 @@
 2025-12-05 16:58:50,654 - 127.0.0.1 - - [05/Dec/2025 16:58:50] "GET /scholarship/demand-forecast HTTP/1.1" 200 -
 2025-12-05 16:59:12,600 -  * Detected change in 'C:\\Users\\jj.jobo\\Desktop\\AnalyticsApp\\webanalyticsapp\\app.py', reloading
 2025-12-05 16:59:12,727 -  * Restarting with stat
+2025-12-08 11:52:27,026 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 11:52:27,026 - [33mPress CTRL+C to quit[0m
+2025-12-08 11:52:27,026 -  * Restarting with stat
+2025-12-08 11:52:30,637 -  * Debugger is active!
+2025-12-08 11:52:30,651 -  * Debugger PIN: 489-983-782
+2025-12-08 11:52:41,470 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "[32mGET / HTTP/1.1[0m" 302 -
+2025-12-08 11:52:41,554 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "GET /login HTTP/1.1" 200 -
+2025-12-08 11:52:41,804 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "GET /static/hyper/vendor/daterangepicker/daterangepicker.css HTTP/1.1" 200 -
+2025-12-08 11:52:41,956 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "[33mGET /static/hyper/css/app.min.css HTTP/1.1[0m" 404 -
+2025-12-08 11:52:41,976 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css HTTP/1.1" 200 -
+2025-12-08 11:52:41,983 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "GET /static/hyper/css/app-saas.css HTTP/1.1" 200 -
+2025-12-08 11:52:41,986 - 127.0.0.1 - - [08/Dec/2025 11:52:41] "GET /static/hyper/css/icons.min.css HTTP/1.1" 200 -
+2025-12-08 11:52:42,005 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/js/hyper-config.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,133 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1" 200 -
+2025-12-08 11:52:42,291 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1" 200 -
+2025-12-08 11:52:42,325 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1" 200 -
+2025-12-08 11:52:42,341 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/main.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,393 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/vendor/daterangepicker/daterangepicker.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,404 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/vendor/daterangepicker/moment.min.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,491 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/vendor/apexcharts/apexcharts.min.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,658 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,672 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,698 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/js/pages/demo.dashboard.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,748 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/js/app.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,843 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/js/vendor.min.js HTTP/1.1" 200 -
+2025-12-08 11:52:42,862 - 127.0.0.1 - - [08/Dec/2025 11:52:42] "GET /static/hyper/js/app.min.js HTTP/1.1" 200 -
+2025-12-08 11:52:43,241 - 127.0.0.1 - - [08/Dec/2025 11:52:43] "GET /static/hyper/images/favicon.ico HTTP/1.1" 200 -
+2025-12-08 11:52:51,068 - 127.0.0.1 - - [08/Dec/2025 11:52:51] "[35m[1mPOST /api/login HTTP/1.1[0m" 500 -
+2025-12-08 11:53:51,733 - LOGIN FAILED username=mikee ip=127.0.0.1
+2025-12-08 11:53:51,733 - 127.0.0.1 - - [08/Dec/2025 11:53:51] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+2025-12-08 11:54:24,607 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 11:54:24,608 - [33mPress CTRL+C to quit[0m
+2025-12-08 11:54:24,611 -  * Restarting with stat
+2025-12-08 11:54:27,717 -  * Debugger is active!
+2025-12-08 11:54:27,722 -  * Debugger PIN: 489-983-782
+2025-12-08 11:54:27,756 - 127.0.0.1 - - [08/Dec/2025 11:54:27] "GET /login HTTP/1.1" 200 -
+2025-12-08 11:54:27,805 - 127.0.0.1 - - [08/Dec/2025 11:54:27] "[33mGET /static/hyper/css/app.min.css HTTP/1.1[0m" 404 -
+2025-12-08 11:54:27,881 - 127.0.0.1 - - [08/Dec/2025 11:54:27] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,118 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,121 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,123 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,127 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,139 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,197 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,430 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,432 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,447 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,451 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,459 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/apexcharts/apexcharts.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,506 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,746 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,747 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/js/pages/demo.dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,762 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,764 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:28,770 - 127.0.0.1 - - [08/Dec/2025 11:54:28] "[36mGET /static/hyper/js/app.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:29,109 - 127.0.0.1 - - [08/Dec/2025 11:54:29] "[36mGET /static/hyper/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-12-08 11:54:33,648 - LOGIN SUCCESS username=mikee user_id=1 ip=127.0.0.1
+2025-12-08 11:54:33,649 - 127.0.0.1 - - [08/Dec/2025 11:54:33] "POST /api/login HTTP/1.1" 200 -
+2025-12-08 11:54:34,070 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /analytics/dashboard HTTP/1.1" 200 -
+2025-12-08 11:54:34,129 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:34,249 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/css/app-saas.min.css HTTP/1.1" 200 -
+2025-12-08 11:54:34,467 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:34,469 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 11:54:34,496 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/cardmriprograms.css HTTP/1.1" 200 -
+2025-12-08 11:54:34,506 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/dashboard.css HTTP/1.1" 200 -
+2025-12-08 11:54:34,554 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/css/icons.css HTTP/1.1" 200 -
+2025-12-08 11:54:34,577 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/images/logo.png HTTP/1.1" 200 -
+2025-12-08 11:54:34,823 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 11:54:34,896 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 11:54:34,987 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/fonts/remixicon.woff2?t=1590207869815 HTTP/1.1" 200 -
+2025-12-08 11:54:34,989 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/fonts/Nunito-Bold.woff HTTP/1.1" 200 -
+2025-12-08 11:54:34,994 - 127.0.0.1 - - [08/Dec/2025 11:54:34] "GET /static/hyper/images/logo-sm.png HTTP/1.1" 200 -
+2025-12-08 11:54:35,020 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/images/logo-dark.png HTTP/1.1" 200 -
+2025-12-08 11:54:35,158 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/images/logo-dark-sm.png HTTP/1.1" 200 -
+2025-12-08 11:54:35,224 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/images/users/avatar-1.jpg HTTP/1.1" 200 -
+2025-12-08 11:54:35,309 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:35,349 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/dashboard.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,358 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/povertyinsight.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,359 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/upload.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,523 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/scholarship_dashboard.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,561 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/users.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,680 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:35,705 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/js/ui/component.fileupload.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,759 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/vendor/highlightjs/highlight.pack.min.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,772 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/vendor/dropzone/min/dropzone.min.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,896 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/vendor/clipboard/clipboard.min.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,902 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "GET /static/hyper/js/hyper-syntax.js HTTP/1.1" 200 -
+2025-12-08 11:54:35,998 - 127.0.0.1 - - [08/Dec/2025 11:54:35] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 11:54:36,365 - 127.0.0.1 - - [08/Dec/2025 11:54:36] "GET /static/hyper/fonts/Nunito-Medium.woff HTTP/1.1" 200 -
+2025-12-08 11:54:36,394 - 127.0.0.1 - - [08/Dec/2025 11:54:36] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 11:54:39,780 - 127.0.0.1 - - [08/Dec/2025 11:54:39] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 11:54:39,805 - 127.0.0.1 - - [08/Dec/2025 11:54:39] "[36mGET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1[0m" 304 -
+2025-12-08 11:54:54,890 - 127.0.0.1 - - [08/Dec/2025 11:54:54] "GET /pages/cardprograms.html HTTP/1.1" 200 -
+2025-12-08 11:54:55,131 - 127.0.0.1 - - [08/Dec/2025 11:54:55] "GET /static/hyper/images/small/small-4.jpg HTTP/1.1" 200 -
+2025-12-08 11:54:57,063 - 127.0.0.1 - - [08/Dec/2025 11:54:57] "GET /pages/povertyinsights.html HTTP/1.1" 200 -
+2025-12-08 11:55:03,219 - 127.0.0.1 - - [08/Dec/2025 11:55:03] "GET /pages/uploads.html HTTP/1.1" 200 -
+2025-12-08 11:55:03,443 - 127.0.0.1 - - [08/Dec/2025 11:55:03] "GET /analytics/uploads HTTP/1.1" 200 -
+2025-12-08 11:55:05,246 - 127.0.0.1 - - [08/Dec/2025 11:55:05] "GET /pages/scholarship_dashboard.html HTTP/1.1" 200 -
+2025-12-08 11:55:05,709 - 127.0.0.1 - - [08/Dec/2025 11:55:05] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 11:55:07,569 - 127.0.0.1 - - [08/Dec/2025 11:55:07] "GET /pages/scholarfinder.html HTTP/1.1" 200 -
+2025-12-08 11:55:09,071 - 127.0.0.1 - - [08/Dec/2025 11:55:09] "GET /pages/scholarship_dashboard.html HTTP/1.1" 200 -
+2025-12-08 11:55:09,380 - 127.0.0.1 - - [08/Dec/2025 11:55:09] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 11:55:11,818 - 127.0.0.1 - - [08/Dec/2025 11:55:11] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 11:55:12,809 - 127.0.0.1 - - [08/Dec/2025 11:55:12] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 12:05:42,686 - 127.0.0.1 - - [08/Dec/2025 12:05:42] "GET /scholarship/demand-forecast HTTP/1.1" 200 -
+2025-12-08 12:05:42,757 - 127.0.0.1 - - [08/Dec/2025 12:05:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-12-08 12:05:52,675 - 127.0.0.1 - - [08/Dec/2025 12:05:52] "GET /scholarship/demand-forecast HTTP/1.1" 200 -
+2025-12-08 16:59:24,306 - 127.0.0.1 - - [08/Dec/2025 16:59:24] "GET /pages/scholarship_dashboard.html HTTP/1.1" 200 -
+2025-12-08 16:59:26,513 - 127.0.0.1 - - [08/Dec/2025 16:59:26] "GET /pages/scholarfinder.html HTTP/1.1" 200 -
+2025-12-08 16:59:28,082 - 127.0.0.1 - - [08/Dec/2025 16:59:28] "[35m[1mGET /pages/scholarship_upload.html HTTP/1.1[0m" 500 -
+2025-12-08 16:59:28,811 - 127.0.0.1 - - [08/Dec/2025 16:59:28] "GET /pages/scholarfinder.html HTTP/1.1" 200 -
+2025-12-08 16:59:32,454 - 127.0.0.1 - - [08/Dec/2025 16:59:32] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 17:00:16,877 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/css/app-saas.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:16,878 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:16,880 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:16,884 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/cardmriprograms.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:16,899 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/dashboard.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:16,910 - 127.0.0.1 - - [08/Dec/2025 17:00:16] "[36mGET /static/hyper/css/icons.css HTTP/1.1[0m" 304 -
+2025-12-08 17:00:17,199 - 127.0.0.1 - - [08/Dec/2025 17:00:17] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-08 17:00:17,202 - 127.0.0.1 - - [08/Dec/2025 17:00:17] "[33mGET /static/hyper/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 404 -
+2025-12-08 17:00:17,557 - 127.0.0.1 - - [08/Dec/2025 17:00:17] "[33mGET /static/hyper/css/materialdesignicons.css.map HTTP/1.1[0m" 404 -
+2025-12-08 17:00:17,580 - 127.0.0.1 - - [08/Dec/2025 17:00:17] "GET /static/hyper/css/app-saas.min.css.map HTTP/1.1" 200 -
+2025-12-08 17:00:17,581 - 127.0.0.1 - - [08/Dec/2025 17:00:17] "GET /static/hyper/css/icons.min.css.map HTTP/1.1" 200 -
+2025-12-08 17:01:43,497 - 127.0.0.1 - - [08/Dec/2025 17:01:43] "[33mGET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1[0m" 404 -
+2025-12-08 17:01:43,684 - 127.0.0.1 - - [08/Dec/2025 17:01:43] "[33mGET /static/hyper/css/materialdesignicons.css.map HTTP/1.1[0m" 404 -
+2025-12-08 17:01:43,685 - 127.0.0.1 - - [08/Dec/2025 17:01:43] "[36mGET /static/hyper/css/icons.min.css.map HTTP/1.1[0m" 304 -
+2025-12-08 17:01:43,690 - 127.0.0.1 - - [08/Dec/2025 17:01:43] "[36mGET /static/hyper/css/app-saas.min.css.map HTTP/1.1[0m" 304 -
+2025-12-08 17:01:43,696 - 127.0.0.1 - - [08/Dec/2025 17:01:43] "[33mGET /static/hyper/js/bootstrap.bundle.min.js.map HTTP/1.1[0m" 404 -
+2025-12-08 17:37:21,088 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[32mGET /analytics/dashboard HTTP/1.1[0m" 302 -
+2025-12-08 17:37:21,095 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "GET /login HTTP/1.1" 200 -
+2025-12-08 17:37:21,360 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,502 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,504 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,512 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,513 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[33mGET /static/hyper/css/app.min.css HTTP/1.1[0m" 404 -
+2025-12-08 17:37:21,522 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,674 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,815 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,820 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,833 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,837 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,839 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:21,987 - 127.0.0.1 - - [08/Dec/2025 17:37:21] "[36mGET /static/hyper/vendor/apexcharts/apexcharts.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,142 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,143 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,149 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/js/pages/demo.dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,159 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,160 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,292 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/js/app.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:22,624 - 127.0.0.1 - - [08/Dec/2025 17:37:22] "[36mGET /static/hyper/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-12-08 17:37:23,775 - LOGIN SUCCESS username=mikee user_id=1 ip=127.0.0.1
+2025-12-08 17:37:23,777 - 127.0.0.1 - - [08/Dec/2025 17:37:23] "POST /api/login HTTP/1.1" 200 -
+2025-12-08 17:37:24,109 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "GET /analytics/dashboard HTTP/1.1" 200 -
+2025-12-08 17:37:24,170 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,374 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/css/app-saas.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,485 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,488 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,497 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/cardmriprograms.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,500 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/css/icons.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,502 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/dashboard.css HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,698 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,807 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,934 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/fonts/remixicon.woff2?t=1590207869815 HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,937 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/fonts/Nunito-Bold.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,945 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/images/logo.png HTTP/1.1[0m" 304 -
+2025-12-08 17:37:24,946 - 127.0.0.1 - - [08/Dec/2025 17:37:24] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,015 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/images/logo-sm.png HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,124 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/images/logo-dark.png HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,250 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/images/logo-dark-sm.png HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,251 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/images/users/avatar-1.jpg HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,262 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,266 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/povertyinsight.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,326 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/upload.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,434 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/scholarship_dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,576 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/users.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,577 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/vendor/dropzone/min/dropzone.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,591 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/js/ui/component.fileupload.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,593 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,636 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/vendor/highlightjs/highlight.pack.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,745 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/vendor/clipboard/clipboard.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,903 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/js/hyper-syntax.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:25,905 - 127.0.0.1 - - [08/Dec/2025 17:37:25] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 17:37:26,250 - 127.0.0.1 - - [08/Dec/2025 17:37:26] "[36mGET /static/hyper/fonts/Nunito-Medium.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:37:26,251 - 127.0.0.1 - - [08/Dec/2025 17:37:26] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 17:37:27,348 - 127.0.0.1 - - [08/Dec/2025 17:37:27] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 17:37:30,506 - 127.0.0.1 - - [08/Dec/2025 17:37:30] "GET /pages/scholarfinder.html HTTP/1.1" 200 -
+2025-12-08 17:49:52,056 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 17:49:52,546 -  * Restarting with stat
+2025-12-08 17:49:56,875 -  * Debugger is active!
+2025-12-08 17:49:56,881 -  * Debugger PIN: 489-983-782
+2025-12-08 17:50:30,251 - 127.0.0.1 - - [08/Dec/2025 17:50:30] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 17:57:53,895 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 17:57:53,895 - [33mPress CTRL+C to quit[0m
+2025-12-08 17:57:53,898 -  * Restarting with stat
+2025-12-08 17:57:57,668 -  * Debugger is active!
+2025-12-08 17:57:57,680 -  * Debugger PIN: 489-983-782
+2025-12-08 17:57:57,709 - 127.0.0.1 - - [08/Dec/2025 17:57:57] "[32mGET /analytics/scholarfinder HTTP/1.1[0m" 302 -
+2025-12-08 17:57:57,744 - 127.0.0.1 - - [08/Dec/2025 17:57:57] "GET /login HTTP/1.1" 200 -
+2025-12-08 17:57:57,906 - 127.0.0.1 - - [08/Dec/2025 17:57:57] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.css HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,130 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,131 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,139 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[33mGET /static/hyper/css/app.min.css HTTP/1.1[0m" 404 -
+2025-12-08 17:57:58,145 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,146 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,222 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,439 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,441 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,450 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,457 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/daterangepicker/daterangepicker.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,459 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/daterangepicker/moment.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,531 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/apexcharts/apexcharts.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,750 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,751 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,764 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/js/pages/demo.dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,772 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,780 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:58,840 - 127.0.0.1 - - [08/Dec/2025 17:57:58] "[36mGET /static/hyper/js/app.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:57:59,170 - 127.0.0.1 - - [08/Dec/2025 17:57:59] "[36mGET /static/hyper/images/favicon.ico HTTP/1.1[0m" 304 -
+2025-12-08 17:58:00,824 - LOGIN SUCCESS username=mikee user_id=1 ip=127.0.0.1
+2025-12-08 17:58:00,825 - 127.0.0.1 - - [08/Dec/2025 17:58:00] "POST /api/login HTTP/1.1" 200 -
+2025-12-08 17:58:01,170 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "GET /analytics/dashboard HTTP/1.1" 200 -
+2025-12-08 17:58:01,218 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,410 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/css/app-saas.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,538 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,540 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,540 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/css/icons.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,542 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/cardmriprograms.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,554 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/dashboard.css HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,722 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,858 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,940 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/fonts/remixicon.woff2?t=1590207869815 HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,943 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/fonts/Nunito-Bold.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,948 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/images/logo.png HTTP/1.1[0m" 304 -
+2025-12-08 17:58:01,950 - 127.0.0.1 - - [08/Dec/2025 17:58:01] "[36mGET /static/hyper/images/logo-sm.png HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,032 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/images/logo-dark.png HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,170 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/images/logo-dark-sm.png HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,249 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/images/users/avatar-1.jpg HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,263 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,276 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,278 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/povertyinsight.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,359 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/upload.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,495 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/scholarship_dashboard.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,576 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/users.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,590 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/vendor/dropzone/min/dropzone.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,595 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/js/ui/component.fileupload.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,608 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,680 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/vendor/highlightjs/highlight.pack.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,819 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/vendor/clipboard/clipboard.min.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,898 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/js/hyper-syntax.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:02,916 - 127.0.0.1 - - [08/Dec/2025 17:58:02] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 17:58:03,259 - 127.0.0.1 - - [08/Dec/2025 17:58:03] "[36mGET /static/hyper/fonts/Nunito-Medium.woff HTTP/1.1[0m" 304 -
+2025-12-08 17:58:03,267 - 127.0.0.1 - - [08/Dec/2025 17:58:03] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 17:58:06,401 - 127.0.0.1 - - [08/Dec/2025 17:58:06] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 17:58:12,581 - 127.0.0.1 - - [08/Dec/2025 17:58:12] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:02:49,680 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 18:02:49,680 - [33mPress CTRL+C to quit[0m
+2025-12-08 18:02:49,683 -  * Restarting with stat
+2025-12-08 18:02:53,135 -  * Debugger is active!
+2025-12-08 18:02:53,139 -  * Debugger PIN: 489-983-782
+2025-12-08 18:02:53,156 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "[32mGET /analytics/usermanagement HTTP/1.1[0m" 302 -
+2025-12-08 18:02:53,158 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "[32mGET / HTTP/1.1[0m" 302 -
+2025-12-08 18:02:53,161 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "[32mGET /analytics/usermanagement HTTP/1.1[0m" 302 -
+2025-12-08 18:02:53,165 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "[32mGET /analytics/usermanagement HTTP/1.1[0m" 302 -
+2025-12-08 18:02:53,453 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "GET /login HTTP/1.1" 200 -
+2025-12-08 18:02:53,879 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "GET /static/hyper/vendor/daterangepicker/daterangepicker.css HTTP/1.1" 200 -
+2025-12-08 18:02:53,883 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "GET /static/hyper/js/hyper-config.js HTTP/1.1" 200 -
+2025-12-08 18:02:53,885 - 127.0.0.1 - - [08/Dec/2025 18:02:53] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css HTTP/1.1" 200 -
+2025-12-08 18:02:54,167 - 127.0.0.1 - - [08/Dec/2025 18:02:54] "[33mGET /static/hyper/css/app.min.css HTTP/1.1[0m" 404 -
+2025-12-08 18:02:54,169 - 127.0.0.1 - - [08/Dec/2025 18:02:54] "GET /static/hyper/css/icons.min.css HTTP/1.1" 200 -
+2025-12-08 18:02:54,173 - 127.0.0.1 - - [08/Dec/2025 18:02:54] "GET /static/hyper/css/app-saas.css HTTP/1.1" 200 -
+2025-12-08 18:02:54,924 - 127.0.0.1 - - [08/Dec/2025 18:02:54] "GET /static/hyper/main.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,257 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/vendor/daterangepicker/moment.min.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,328 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/vendor/daterangepicker/daterangepicker.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,422 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/vendor/apexcharts/apexcharts.min.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,678 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,758 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js HTTP/1.1" 200 -
+2025-12-08 18:02:55,833 - 127.0.0.1 - - [08/Dec/2025 18:02:55] "GET /static/hyper/js/pages/demo.dashboard.js HTTP/1.1" 200 -
+2025-12-08 18:02:56,027 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/js/vendor.min.js HTTP/1.1" 200 -
+2025-12-08 18:02:56,298 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/js/app.js HTTP/1.1" 200 -
+2025-12-08 18:02:56,307 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/js/app.min.js HTTP/1.1" 200 -
+2025-12-08 18:02:56,638 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1" 200 -
+2025-12-08 18:02:56,639 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1" 200 -
+2025-12-08 18:02:56,640 - 127.0.0.1 - - [08/Dec/2025 18:02:56] "GET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1" 200 -
+2025-12-08 18:02:57,222 - 127.0.0.1 - - [08/Dec/2025 18:02:57] "GET /static/hyper/images/favicon.ico HTTP/1.1" 200 -
+2025-12-08 18:03:12,056 - LOGIN FAILED username=mikee ip=127.0.0.1
+2025-12-08 18:03:12,057 - 127.0.0.1 - - [08/Dec/2025 18:03:12] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+2025-12-08 18:03:16,829 - LOGIN FAILED username=mikee ip=127.0.0.1
+2025-12-08 18:03:16,830 - 127.0.0.1 - - [08/Dec/2025 18:03:16] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+2025-12-08 18:03:20,733 - LOGIN FAILED username=mikee ip=127.0.0.1
+2025-12-08 18:03:20,734 - 127.0.0.1 - - [08/Dec/2025 18:03:20] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+2025-12-08 18:03:28,518 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:03:28,943 -  * Restarting with stat
+2025-12-08 18:03:33,836 -  * Debugger is active!
+2025-12-08 18:03:33,841 -  * Debugger PIN: 489-983-782
+2025-12-08 18:03:33,906 - 127.0.0.1 - - [08/Dec/2025 18:03:33] "[35m[1mGET /scholarship/age-distribution HTTP/1.1[0m" 500 -
+2025-12-08 18:04:03,197 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:04:03,481 -  * Restarting with stat
+2025-12-08 18:04:07,235 -  * Debugger is active!
+2025-12-08 18:04:07,240 -  * Debugger PIN: 489-983-782
+2025-12-08 18:04:07,662 - LOGIN SUCCESS username=mikee user_id=1 ip=127.0.0.1
+2025-12-08 18:04:07,664 - 127.0.0.1 - - [08/Dec/2025 18:04:07] "POST /api/login HTTP/1.1" 200 -
+2025-12-08 18:04:07,941 - 127.0.0.1 - - [08/Dec/2025 18:04:07] "GET /analytics/dashboard HTTP/1.1" 200 -
+2025-12-08 18:04:08,268 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "[36mGET /static/hyper/css/icons.min.css HTTP/1.1[0m" 304 -
+2025-12-08 18:04:08,275 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "[36mGET /static/hyper/css/app-saas.css HTTP/1.1[0m" 304 -
+2025-12-08 18:04:08,276 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "GET /static/hyper/css/icons.css HTTP/1.1" 200 -
+2025-12-08 18:04:08,276 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "GET /static/hyper/cardmriprograms.css HTTP/1.1" 200 -
+2025-12-08 18:04:08,278 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "GET /static/hyper/dashboard.css HTTP/1.1" 200 -
+2025-12-08 18:04:08,279 - 127.0.0.1 - - [08/Dec/2025 18:04:08] "GET /static/hyper/css/app-saas.min.css HTTP/1.1" 200 -
+2025-12-08 18:04:09,035 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/images/logo.png HTTP/1.1" 200 -
+2025-12-08 18:04:09,035 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "[36mGET /static/hyper/js/hyper-config.js HTTP/1.1[0m" 304 -
+2025-12-08 18:04:09,036 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/images/logo-sm.png HTTP/1.1" 200 -
+2025-12-08 18:04:09,299 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/images/logo-dark-sm.png HTTP/1.1" 200 -
+2025-12-08 18:04:09,299 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/images/logo-dark.png HTTP/1.1" 200 -
+2025-12-08 18:04:09,612 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/images/users/avatar-1.jpg HTTP/1.1" 200 -
+2025-12-08 18:04:09,612 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "[36mGET /static/hyper/main.js HTTP/1.1[0m" 304 -
+2025-12-08 18:04:09,881 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/povertyinsight.js HTTP/1.1" 200 -
+2025-12-08 18:04:09,882 - 127.0.0.1 - - [08/Dec/2025 18:04:09] "GET /static/hyper/dashboard.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,072 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/upload.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,215 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/scholarship_dashboard.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,217 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/vendor/dropzone/min/dropzone.min.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,217 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/users.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,332 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "[36mGET /static/hyper/fonts/Nunito-Regular.woff HTTP/1.1[0m" 304 -
+2025-12-08 18:04:10,333 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/fonts/remixicon.woff2?t=1590207869815 HTTP/1.1" 200 -
+2025-12-08 18:04:10,435 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/fonts/Nunito-Bold.woff HTTP/1.1" 200 -
+2025-12-08 18:04:10,529 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "[36mGET /static/hyper/fonts/materialdesignicons-webfont.woff2?v=6.5.95 HTTP/1.1[0m" 304 -
+2025-12-08 18:04:10,531 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/js/ui/component.fileupload.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,601 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "[36mGET /static/hyper/js/vendor.min.js HTTP/1.1[0m" 304 -
+2025-12-08 18:04:10,607 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/vendor/highlightjs/highlight.pack.min.js HTTP/1.1" 200 -
+2025-12-08 18:04:10,648 - 127.0.0.1 - - [08/Dec/2025 18:04:10] "GET /static/hyper/vendor/clipboard/clipboard.min.js HTTP/1.1" 200 -
+2025-12-08 18:04:11,344 - 127.0.0.1 - - [08/Dec/2025 18:04:11] "GET /static/hyper/js/hyper-syntax.js HTTP/1.1" 200 -
+2025-12-08 18:04:11,423 - 127.0.0.1 - - [08/Dec/2025 18:04:11] "[36mGET /static/hyper/js/app.js HTTP/1.1[0m" 304 -
+2025-12-08 18:04:11,668 - 127.0.0.1 - - [08/Dec/2025 18:04:11] "GET /static/hyper/fonts/Nunito-Medium.woff HTTP/1.1" 200 -
+2025-12-08 18:04:11,700 - 127.0.0.1 - - [08/Dec/2025 18:04:11] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 18:04:11,906 - 127.0.0.1 - - [08/Dec/2025 18:04:11] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:04:13,250 - 127.0.0.1 - - [08/Dec/2025 18:04:13] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 18:04:14,211 - 127.0.0.1 - - [08/Dec/2025 18:04:14] "[36mGET /static/hyper/fonts/Nunito-SemiBold.woff HTTP/1.1[0m" 304 -
+2025-12-08 18:04:19,820 - 127.0.0.1 - - [08/Dec/2025 18:04:19] "GET /pages/cardprograms.html HTTP/1.1" 200 -
+2025-12-08 18:04:20,087 - 127.0.0.1 - - [08/Dec/2025 18:04:20] "GET /static/hyper/images/small/small-4.jpg HTTP/1.1" 200 -
+2025-12-08 18:04:23,330 - 127.0.0.1 - - [08/Dec/2025 18:04:23] "GET /pages/uploads.html HTTP/1.1" 200 -
+2025-12-08 18:04:23,726 - 127.0.0.1 - - [08/Dec/2025 18:04:23] "GET /analytics/uploads HTTP/1.1" 200 -
+2025-12-08 18:04:24,389 - 127.0.0.1 - - [08/Dec/2025 18:04:24] "GET /pages/povertyinsights.html HTTP/1.1" 200 -
+2025-12-08 18:04:29,511 - 127.0.0.1 - - [08/Dec/2025 18:04:29] "GET /pages/scholarship_dashboard.html HTTP/1.1" 200 -
+2025-12-08 18:04:29,520 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:04:29,942 -  * Restarting with stat
+2025-12-08 18:04:33,794 -  * Debugger is active!
+2025-12-08 18:04:33,800 -  * Debugger PIN: 489-983-782
+2025-12-08 18:04:35,519 - 127.0.0.1 - - [08/Dec/2025 18:04:35] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 18:04:42,035 - 127.0.0.1 - - [08/Dec/2025 18:04:42] "[35m[1mGET /scholarship/age-distribution HTTP/1.1[0m" 500 -
+2025-12-08 18:08:41,639 - 127.0.0.1 - - [08/Dec/2025 18:08:41] "GET /scholarship/high-need-areas HTTP/1.1" 200 -
+2025-12-08 18:10:09,586 - 127.0.0.1 - - [08/Dec/2025 18:10:09] "[35m[1mGET /scholarship/age-distribution HTTP/1.1[0m" 500 -
+2025-12-08 18:11:49,188 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:11:49,721 -  * Restarting with stat
+2025-12-08 18:11:55,748 -  * Debugger is active!
+2025-12-08 18:11:55,756 -  * Debugger PIN: 489-983-782
+2025-12-08 18:11:57,882 - 127.0.0.1 - - [08/Dec/2025 18:11:57] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:14:21,766 - 127.0.0.1 - - [08/Dec/2025 18:14:21] "GET /pages/dashboard.html HTTP/1.1" 200 -
+2025-12-08 18:14:22,307 - 127.0.0.1 - - [08/Dec/2025 18:14:22] "GET /ppi/heatmap-data HTTP/1.1" 200 -
+2025-12-08 18:14:25,081 - 127.0.0.1 - - [08/Dec/2025 18:14:25] "GET /pages/cardprograms.html HTTP/1.1" 200 -
+2025-12-08 18:14:25,421 - 127.0.0.1 - - [08/Dec/2025 18:14:25] "[36mGET /static/hyper/images/small/small-4.jpg HTTP/1.1[0m" 304 -
+2025-12-08 18:14:26,529 - 127.0.0.1 - - [08/Dec/2025 18:14:26] "GET /pages/povertyinsights.html HTTP/1.1" 200 -
+2025-12-08 18:16:02,443 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:16:02,929 -  * Restarting with stat
+2025-12-08 18:16:07,078 -  * Debugger is active!
+2025-12-08 18:16:07,083 -  * Debugger PIN: 489-983-782
+2025-12-08 18:16:15,068 - 127.0.0.1 - - [08/Dec/2025 18:16:15] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:16:37,833 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-12-08 18:16:37,833 - [33mPress CTRL+C to quit[0m
+2025-12-08 18:16:37,837 -  * Restarting with stat
+2025-12-08 18:16:41,455 -  * Debugger is active!
+2025-12-08 18:16:41,459 -  * Debugger PIN: 489-983-782
+2025-12-08 18:16:43,163 - 127.0.0.1 - - [08/Dec/2025 18:16:43] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:16:49,183 - 127.0.0.1 - - [08/Dec/2025 18:16:49] "GET /scholarship/age-distribution HTTP/1.1" 200 -
+2025-12-08 18:21:10,145 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:21:10,458 -  * Restarting with stat
+2025-12-08 18:21:14,134 -  * Debugger is active!
+2025-12-08 18:21:14,139 -  * Debugger PIN: 489-983-782
+2025-12-08 18:21:30,538 - 127.0.0.1 - - [08/Dec/2025 18:21:30] "GET /scholarship/income-analytics HTTP/1.1" 200 -
+2025-12-08 18:36:33,283 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 18:36:33,620 -  * Restarting with stat
+2025-12-08 18:36:37,469 -  * Debugger is active!
+2025-12-08 18:36:37,475 -  * Debugger PIN: 489-983-782
+2025-12-08 18:36:41,655 - 127.0.0.1 - - [08/Dec/2025 18:36:41] "GET /scholarship/income-analytics HTTP/1.1" 200 -
+2025-12-08 18:37:16,068 - 127.0.0.1 - - [08/Dec/2025 18:37:16] "GET /scholarship/income-analytics HTTP/1.1" 200 -
+2025-12-08 19:28:45,579 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 19:28:46,178 -  * Restarting with stat
+2025-12-08 19:28:51,397 -  * Debugger is active!
+2025-12-08 19:28:51,401 -  * Debugger PIN: 489-983-782
+2025-12-08 19:29:11,319 - 127.0.0.1 - - [08/Dec/2025 19:29:11] "GET /scholarship/priority-scoring HTTP/1.1" 200 -
+2025-12-08 19:38:42,802 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 19:38:43,522 -  * Restarting with stat
+2025-12-08 19:38:48,452 -  * Debugger is active!
+2025-12-08 19:38:48,457 -  * Debugger PIN: 489-983-782
+2025-12-08 19:38:57,199 - 127.0.0.1 - - [08/Dec/2025 19:38:57] "GET /scholarship/priority-scoring HTTP/1.1" 200 -
+2025-12-08 19:43:28,464 -  * Detected change in 'C:\\Users\\uwa\\Desktop\\thesis\\webanalyticsapp\\app.py', reloading
+2025-12-08 19:43:28,707 -  * Restarting with stat
