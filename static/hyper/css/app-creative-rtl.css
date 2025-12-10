@@ -32,7 +32,7 @@ html[data-menu-color=light] {
 }
 
 html[data-menu-color=dark] {
-  --ct-menu-bg: #313a46;
+  --ct-menu-bg: #aa1f0e;
   --ct-menu-item-color: #8391a2;
   --ct-menu-item-hover-color: #bccee4;
   --ct-menu-item-active-color: #ffffff;
@@ -49,7 +49,7 @@ html[data-menu-color=brand] {
 
 html[data-bs-theme=dark][data-menu-color=light],
 html[data-bs-theme=dark][data-menu-color=dark] {
-  --ct-menu-bg: #3a444e;
+  --ct-menu-bg: #aa1f0e;
   --ct-menu-item-color: #8391a2;
   --ct-menu-item-hover-color: #bccee4;
   --ct-menu-item-active-color: #ffffff;

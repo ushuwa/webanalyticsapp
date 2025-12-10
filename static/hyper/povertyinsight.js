@@ -323,18 +323,18 @@ function initPovertyInsights() {
     // --- HARDCODED DATA ---
     const data2 = {
         pre_probability_table: [
-            { band: "0-20%", count: 10, percentage: 20},
-            { band: "21-40%", count: 20, percentage: 40 },
-            { band: "41-60%", count: 30, percentage: 60 },
-            { band: "61-80%", count: 40, percentage: 80 },
-            { band: "81-100%", count: 50, percentage: 100 }
+            { band: "0-20", count: 50, percentage: 20},
+            { band: "21-40", count: 40, percentage: 40 },
+            { band: "41-60", count: 30, percentage: 60 },
+            { band: "61-80", count: 20, percentage: 80 },
+            { band: "81-100", count: 10, percentage: 100 }
         ],
         post_probability_table: [
-            { band: "0-20%", count: 50, percentage: 100 },
-            { band: "21-40%", count: 40, percentage: 80 },
-            { band: "41-60%", count: 30, percentage: 60 },
-            { band: "61-80%", count: 20, percentage: 40 },
-            { band: "81-100%", count: 10, percentage: 20 }
+            { band: "0-20", count: 10, percentage: 100 },
+            { band: "21-40", count: 20, percentage: 80 },
+            { band: "41-60", count: 30, percentage: 60 },
+            { band: "61-80", count: 40, percentage: 40 },
+            { band: "81-100", count: 60, percentage: 20 }
         ]
     };
     // ------------------------------------------------
@@ -356,7 +356,7 @@ function initPovertyInsights() {
         colors: ['#aa1f0e'],
         dataLabels: { enabled: true },
         tooltip: {
-            y: { formatter: (val, opts) => `${val} clients (${prePercentages[opts.dataPointIndex]}%)` }
+            y: { formatter: (val, opts) => `${val} clients (${prePercentages[opts.dataPointIndex]})` }
         }
     };
 
@@ -372,7 +372,7 @@ function initPovertyInsights() {
         colors: ['#aa1f0e'],
         dataLabels: { enabled: true },
         tooltip: {
-            y: { formatter: (val, opts) => `${val} clients (${postPercentages[opts.dataPointIndex]}%)` }
+            y: { formatter: (val, opts) => `${val} clients (${postPercentages[opts.dataPointIndex]})` }
         }
     };
 

@@ -1451,7 +1451,7 @@ def scholarship_income_analytics():
     })
 
 
-@app.route("/scholarship/priority-scoring")
+@app.route("/scholarship/priority-scoring") #yung radar chart
 def scholarship_priority_scoring():
     import pandas as pd
     import numpy as np
@@ -1619,6 +1619,241 @@ def scholarship_priority_scoring():
         },
         "results": results
     })
+
+
+@app.route("/scholarship/heatmap-data")
+def scholarship_heatmap_data():
+    import pandas as pd
+
+    df = dependent.load_df()
+    df.columns = [c.lower().strip() for c in df.columns]
+
+    # Required fields
+    required = {"cid", "dependent name", "province", "city"}
+    missing = required - set(df.columns)
+    if missing:
+        return jsonify({"error": f"Missing required columns: {missing}"}), 400
+
+    # Clean invalid rows
+    invalid = ["", "null", "none", "nan", "[null]", "nil"]
+
+    df["dependent name"] = df["dependent name"].astype(str).str.strip()
+    df["province"] = df["province"].astype(str).str.strip().str.upper()
+    df["city"] = df["city"].astype(str).str.strip().str.upper()
+
+    df = df[
+        (~df["dependent name"].str.lower().isin(invalid)) &
+        (~df["province"].str.lower().isin(invalid)) &
+        (~df["city"].str.lower().isin(invalid))
+    ].copy()
+
+    if df.empty:
+        return jsonify([])
+
+    # COUNT UNIQUE DEPENDENTS PER CID
+    grouped = (
+        df.groupby(["cid", "province", "city"])["dependent name"]
+        .nunique()  # COUNT UNIQUE NAMES ONLY
+        .reset_index()
+        .rename(columns={"dependent name": "dependent_count"})
+    )
+
+    results = []
+
+    for _, row in grouped.iterrows():
+        cid = str(row["cid"])
+        province = row["province"]
+        city = row["city"]
+        dep_count = int(row["dependent_count"])
+
+        # Get coordinates from LGU centroid file
+        lat, lng, match_type = get_coords(province, city)
+
+        results.append({
+            "cid": cid,
+            "province": province,
+            "city": city,
+            "dependent_count": dep_count,
+            "lat": lat,
+            "lng": lng,
+            "match_type": match_type
+        })
+
+    return jsonify(results)
+
+
+@app.route("/scholarship/priority-finder")
+def scholarship_priority_finder():
+    from flask import request, jsonify
+    import pandas as pd
+    import numpy as np
+
+    province = request.args.get("province")
+    city = request.args.get("city")
+
+    if not province or not city:
+        return jsonify({"error": "province and city are required"}), 400
+
+    # Reuse scoring model
+    from app import scholarship_priority_scoring as scoring_api  # Adjust if located elsewhere
+
+    scoring_json = scoring_api().json
+    results = scoring_json["results"]
+
+    # Find area
+    for area in results:
+        if area["province"].upper() == province.upper() and area["city"].upper() == city.upper():
+
+            score = area["priority_score"]
+
+            # Determine priority level
+            if score >= 0.80: level = "CRITICAL"
+            elif score >= 0.60: level = "HIGH"
+            elif score >= 0.40: level = "MEDIUM"
+            elif score >= 0.20: level = "LOW"
+            else: level = "MINIMAL"
+
+            justification = f"""
+                The area of {city.title()}, {province.title()} has been classified as {level} priority
+                due to its poverty level, income difficulty, loan burden, number of school-age dependents,
+                and calculated dropout risk.
+            """
+
+            return jsonify({
+                "province": province.upper(),
+                "city": city.upper(),
+                "priority_score": score,
+                "priority_level": level,
+                "justification": justification,
+                "criteria": area["weights_breakdown"]
+            })
+
+    return jsonify({"error": "Area not found in dataset"}), 404
+
+@app.route("/scholarship/client-finder")
+def scholarship_client_finder():
+    import pandas as pd
+    import numpy as np
+    import re
+    from flask import request
+
+    # Read CID as STRING
+    cid = request.args.get("cid")
+    if not cid:
+        return jsonify({"error": "cid is required"}), 400
+
+    cid = str(cid).replace(",", "").strip()
+
+    df = dependent.load_df()
+    df.columns = [c.lower().strip() for c in df.columns]
+
+    # Convert CID to string safely in dataset
+    df["cid"] = df["cid"].astype(str).str.replace(",", "").str.strip()
+
+    df = df[df["cid"] == cid]
+
+    if df.empty:
+        return jsonify({"error": f"CID {cid} not found"}), 404
+
+    # ---- INCOME PARSER ----
+    def parse_income(value):
+        v = str(value).lower().strip()
+        v = v.replace("pesos", "").replace(",", "").strip()
+
+        # Above
+        if "above" in v:
+            nums = [int(s) for s in re.findall(r"\d+", v)]
+            return nums[0] + 2000 if nums else 16000
+
+        # Below
+        if "below" in v:
+            nums = [int(s) for s in re.findall(r"\d+", v)]
+            return nums[0] / 2 if nums else 500
+
+        # Ranges
+        nums = re.findall(r"\d+", v)
+        if len(nums) == 2:
+            low, high = map(int, nums)
+            return (low + high) / 2
+
+        # Single value
+        if len(nums) == 1:
+            return float(nums[0])
+
+        return None
+
+    df["income"] = df["householdmonthly income"].apply(parse_income)
+    df["loan"] = pd.to_numeric(
+        df["loan balance"].astype(str).str.replace(r"[^0-9\-]", "", regex=True),
+        errors="coerce"
+    )
+
+    df["dependent_age"] = pd.to_numeric(df["dependent_age"], errors="coerce")
+
+    dependent_count = df["dependent name"].nunique()
+    avg_income = df["income"].mean()
+    avg_loan = df["loan"].mean()
+
+    # ---- SCHOLARSHIP CATEGORY LOGIC ----
+    if avg_income < 5000:
+        category = "FULL SCHOLARSHIP"
+    elif avg_income <= 12000:
+        category = "PARTIAL SCHOLARSHIP"
+    else:
+        category = "ASSISTED SUPPORT"
+
+    # Loan burden adjustment
+    if avg_loan > 20000:
+        category = "FULL SCHOLARSHIP (Loan Burden Adjusted)"
+    elif avg_loan > 10000 and category == "ASSISTED SUPPORT":
+        category = "PARTIAL SCHOLARSHIP (Loan Adjusted)"
+
+    return jsonify({
+        "cid": cid,
+        "dependent_count": int(dependent_count),
+        "avg_income": float(avg_income),
+        "avg_loan": float(avg_loan),
+        "recommended_category": category
+    })
+
+
+
+@app.route("/scholarship/action-plans")
+def scholarship_action_plans():
+    import pandas as pd
+    import numpy as np
+
+    scoring = scholarship_priority_scoring().json["results"]
+    df = pd.DataFrame(scoring)
+
+    # Suggested allocation = priority score * eligible dependents (scaled)
+    df["suggested_allocation"] = df["weights_breakdown"].apply(
+        lambda x: x["eligible_dependents_score"] * 100
+    )
+
+    # Predicted scholars next year based on risk growth model
+    def growth_factor(score):
+        if score >= 0.80: return 1.05   # critical → grow 5%
+        if score >= 0.60: return 1.03   # high → grow 3%
+        return 1.01                     # others → grow 1%
+
+    df["predicted_scholars_next_year"] = (
+        df["suggested_allocation"] * df["priority_score"].apply(growth_factor)
+    ).astype(int)
+
+    # Identify areas needing more community engagement
+    df["needs_engagement"] = df["priority_score"].apply(
+        lambda x: True if x >= 0.70 else False
+    )
+
+    return jsonify({
+        "allocation_plan": df[["province", "city", "suggested_allocation"]].to_dict(orient="records"),
+        "predicted_scholars": df[["province", "city", "predicted_scholars_next_year"]].to_dict(orient="records"),
+        "engagement_priority_areas": df[df["needs_engagement"]][["province", "city"]].to_dict(orient="records")
+    })
+
+
+
 
 
 

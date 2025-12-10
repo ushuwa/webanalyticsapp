@@ -1,0 +1,130 @@
+<script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+
+<div class="container-fluid" id="atrisk-dashboard-section">
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box">
+        <div class="page-title-right"></div>
+        <h4 class="page-title">Dashboard</h4>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-6">
+      <div class="card card-h-300">
+        <div class="card-body">
+          <div id="philippinemap">
+            </div>
+           
+          <!-- <div id="marker-layer" style="position:absolute; top:0; left:0; pointer-events:none;"></div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card card-h-100">
+        <div class="card-body">
+            <h1 class="title">Scoring Gauge</h1>
+        <div id="scoregauges">
+             <div class="w-full lg:w-1/2 px-3 mb-6">               
+                    <h5 class="text-lg font-semibold mb-6">Overall Risk Score</h5>
+                    <div id="scoregauge" class="flex justify-center items-center h-full w-full">
+
+                        <!-- SCORING GAUGE IMPLEMENTATION -->
+                        <div class="gauge-container">
+                            <svg viewBox="0 0 100 100" class="gauge-svg">
+                                <!-- Background Track -->
+                                <circle
+                                    class="gauge-track"
+                                    cx="50" cy="50" r="45"
+                                    stroke="#e0e7ff"
+                                    stroke-width="10"
+                                    fill="none"
+                                />
+                                <!-- Progress Indicator -->
+                                <circle
+                                    id="gauge-progress-circle"
+                                    class="gauge-progress"
+                                    cx="50" cy="50" r="45"
+                                    stroke-width="10"
+                                    fill="none"
+                                />
+                            </svg>
+                            <!-- Score Text -->
+                            <span id="score-text" class="score-text text-gray-800">0%</span>
+                        </div>
+                        <!-- END SCORING GAUGE IMPLEMENTATION -->
+
+                    </div>
+               
+
+
+        </div>
+
+
+</div>
+        </div>
+      </div>
+  </div>
+    
+ 
+
+</div>
+
+ <style>
+        /* Configure Tailwind to use Inter font and smooth transitions */
+        :root {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom CSS for the Gauge SVG */
+        .gauge-container {
+            position: relative;
+            width: 90%;
+            padding-bottom: 90%; /* Creates a square container for the SVG */
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        .gauge-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Rotates the starting point from 3 o'clock to 12 o'clock */
+            transform: rotate(-90deg);
+        }
+
+        .gauge-track,
+        .gauge-progress {
+            stroke-linecap: round;
+        }
+
+        .gauge-track {
+            stroke: #e0e7ff; /* Lighter background color */
+        }
+
+        .gauge-progress {
+            /* The circumference of a circle with radius 45 is 2 * PI * 45 ≈ 282.74 */
+            stroke-dasharray: 282.74;
+            stroke-dashoffset: 282.74; /* Starts fully hidden */
+            transition: stroke-dashoffset 1s ease-out, stroke 0.5s ease-in-out;
+        }
+
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            transition: color 0.5s ease-in-out;
+        }
+
+        /* Simulating the card height for visual alignment */
+      
+    </style>
+     

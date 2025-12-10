@@ -32,7 +32,7 @@ html[data-menu-color=light] {
 }
 
 html[data-menu-color=dark] {
-  --ct-menu-bg: #313a46;
+  --ct-menu-bg: #aa1f0e;
   --ct-menu-item-color: #8391a2;
   --ct-menu-item-hover-color: #bccee4;
   --ct-menu-item-active-color: #ffffff;
@@ -49,7 +49,7 @@ html[data-menu-color=brand] {
 
 html[data-bs-theme=dark][data-menu-color=light],
 html[data-bs-theme=dark][data-menu-color=dark] {
-  --ct-menu-bg: #3a444e;
+  --ct-menu-bg: #aa1f0e;
   --ct-menu-item-color: #8391a2;
   --ct-menu-item-hover-color: #bccee4;
   --ct-menu-item-active-color: #ffffff;
@@ -14421,7 +14421,7 @@ html[data-bs-theme=dark] .logo.logo-dark {
   width: var(--ct-leftbar-width);
   min-width: var(--ct-leftbar-width);
   padding-bottom: calc(var(--ct-footer-height) + 0.75rem);
-  background: var(--ct-menu-bg);
+  background: #900f2f; /*JJJ*/
   -webkit-box-shadow: var(--ct-box-shadow);
           box-shadow: var(--ct-box-shadow);
   border-right: var(--ct-theme-card-border-width) solid var(--ct-border-color);

@@ -73,6 +73,15 @@ async function navigate(event, urlPath, pageFile, element) {
                 }
             }, 50);
         }
+         if (pageFile === "atrisk_dashboard.html") {
+            setTimeout(() => {
+                if (typeof initAtriskDashboard === "function") {
+                    initAtriskDashboard();
+                } else {
+                    console.error("initUplinitAtriskDashboardoads() not found. Did you includeatrisk_dashboard.js?");
+                }
+            }, 50);
+        }
         
 
     } catch (err) {

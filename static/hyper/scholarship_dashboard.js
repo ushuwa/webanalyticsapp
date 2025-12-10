@@ -54,7 +54,7 @@ function initScholarshipDashboard() {
 
 		Highcharts.mapChart('philippinemap', {
 			chart: { map: topology },
-			title: { text: 'Philippines Average PPI Heatmap' },
+			title: { text: 'Client per Area' },
 			mapNavigation: { enabled: true },
 			colorAxis: {
 				min: minPPI,
@@ -64,17 +64,77 @@ function initScholarshipDashboard() {
 			tooltip: {
 				formatter: function() {
 					if (this.point.avg_ppi !== undefined) {
-						return `<b>${this.point.name}</b><br/>Average PPI: ${this.point.avg_ppi}`;
+						return `<b>${this.point.name}</b><br/>Dependent Count: ${this.point.avg_ppi}`;
 					}
 					return this.point.name;
 				}
 			},
 			series: [
-				{ data: heatmapData, name: 'Average PPI' },
+				{ data: heatmapData, name: 'Clients' },
 				{ type: 'mappoint', name: 'Municipalities', data: markerData }
 			]
 		});
 	})();
+
+
+	// Sample player data
+	let clients = [
+		{ name: "Alice", score: 88 },
+		{ name: "Bob", score: 95 },
+		{ name: "Charlie", score: 72 },
+		{ name: "Diana", score: 91 },
+		{ name: "Alice", score: 88 },
+		{ name: "Bob", score: 95 },
+		{ name: "Charlie", score: 72 },
+		{ name: "Diana", score: 91 },
+	];
+
+	let descending = true; // sort direction
+
+	// Render table rows
+	function renderTable() {
+		const body = document.getElementById("tableBody");
+		body.innerHTML = "";
+
+		clients
+			.sort((a, b) => descending ? b.score - a.score : a.score - b.score)
+			.forEach((clients, index) => {
+				body.innerHTML += `
+					<tr>
+						<td>${index + 1}</td>
+						<td>${clients.name}</td>
+						<td>${clients.score}</td>
+					</tr>
+				`;
+			});
+	}
+
+	function sortByScore() {
+		descending = !descending;
+		renderTable();
+	}
+
+	renderTable();
+
+
+
+	function setScore(value) {
+		if (value < 0) value = 0;
+		if (value > 100) value = 100;
+
+		const needle = document.getElementById("needle");
+		const scoreValue = document.getElementById("scoreValue");
+
+		// convert score (0–100) to degrees (-90deg to +90deg)
+		let degree = (value / 100) * 180 - 90;
+
+		needle.style.transform = `rotate(${degree}deg)`;
+		scoreValue.textContent = value;
+	}
+
+	// Example: animate to 50% on load
+	setTimeout(() => setScore(50), 500);
+
 
 }
 
